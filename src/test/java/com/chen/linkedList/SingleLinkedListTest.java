@@ -112,4 +112,35 @@ public class SingleLinkedListTest {
         System.out.printf("倒数第%d个节点为为：" + singleLinkedList.findLastIndexNode(k), k);
     }
 
+    //测试反转链表
+    @Test
+    public void testSingleLinkedListReverseSingleLinkedList() {
+        singleLinkedList.addByOrder(heroNode1);
+        singleLinkedList.addByOrder(heroNode4);
+        singleLinkedList.addByOrder(heroNode3);
+        singleLinkedList.addByOrder(heroNode2);
+
+        System.out.println("原链表为：");
+        singleLinkedList.showList();
+
+        System.out.println("反转后的链表为：");
+        singleLinkedList.reverseLinkedList().showList();
+    }
+
+    //测试使用栈进行逆序打印
+    @Test
+    public void testSingleLinkedListReversePrint() {
+        singleLinkedList.addByOrder(heroNode1);
+        singleLinkedList.addByOrder(heroNode4);
+        singleLinkedList.addByOrder(heroNode3);
+        singleLinkedList.addByOrder(heroNode2);
+
+        System.out.println("原链表为：");
+        singleLinkedList.showList();
+
+        System.out.println("逆序输出链表：");
+
+        singleLinkedList.reversePrint();
+    }
+
 }

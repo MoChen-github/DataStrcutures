@@ -1,5 +1,7 @@
 package com.chen.linkedlist;
 
+import java.util.Stack;
+
 // 定义一个SingleLinkedList 管理英雄
 public class SingleLinkedList {
     //初始化一个头节点，不存放任何具体数据
@@ -163,5 +165,44 @@ public class SingleLinkedList {
             current = current.next;
         }
         return current;
+    }
+
+    //单链表的反转
+    public SingleLinkedList reverseLinkedList() {
+        if (getLength() == 1 || isEmpty()) {
+            return this;
+        }
+
+        //定义一个辅助节点，用来遍历链表
+        HeroNode current = head.next;
+        HeroNode next;
+        HeroNode reverseHead = new HeroNode(0, "", "");
+
+        //遍历原来的链表，每遍历一个节点，就将其取出并放到新的链表reverseHead的最前端
+        while (current != null) {
+            next = current.next; //暂时保存当前节点的下一个节点
+            current.next = reverseHead.next;
+            reverseHead.next = current;
+            current = next;
+        }
+        head.next = reverseHead.next;
+        return this;
+    }
+
+    public void reversePrint() {
+        if (isEmpty()) {
+            return;
+        }
+
+        Stack<HeroNode> stack = new Stack<>();
+        HeroNode cur = head.next;
+        while (cur != null) {
+            stack.push(cur);
+            cur = cur.next;
+        }
+
+        while (stack.size() > 0) {
+            System.out.println(stack.pop());
+        }
     }
 }
