@@ -1,17 +1,17 @@
 package com.chen.linkedList;
 
-import com.chen.linkedlist.HeroNode;
-import com.chen.linkedlist.SingleLinkedList;
+import com.chen.linkedlist.Single.SingleHeroNode;
+import com.chen.linkedlist.Single.SingleLinkedList;
 import org.junit.Test;
 
 import java.util.Scanner;
 
 public class SingleLinkedListTest {
     //创建节点
-    HeroNode heroNode1 = new HeroNode(1, "宋江", "及时雨");
-    HeroNode heroNode2 = new HeroNode(2, "卢俊义", "玉麒麟");
-    HeroNode heroNode3 = new HeroNode(3, "吴用", "智多星");
-    HeroNode heroNode4 = new HeroNode(4, "林冲", "豹子头");
+    SingleHeroNode singleHeroNode1 = new SingleHeroNode(1, "宋江", "及时雨");
+    SingleHeroNode singleHeroNode2 = new SingleHeroNode(2, "卢俊义", "玉麒麟");
+    SingleHeroNode singleHeroNode3 = new SingleHeroNode(3, "吴用", "智多星");
+    SingleHeroNode singleHeroNode4 = new SingleHeroNode(4, "林冲", "豹子头");
 
     //创建单链表
     SingleLinkedList singleLinkedList = new SingleLinkedList();
@@ -19,10 +19,10 @@ public class SingleLinkedListTest {
     //测试添加方法
     @Test
     public void testSingleLinkedListAdd() {
-        singleLinkedList.add(heroNode1);
-        singleLinkedList.add(heroNode2);
-        singleLinkedList.add(heroNode3);
-        singleLinkedList.add(heroNode4);
+        singleLinkedList.add(singleHeroNode1);
+        singleLinkedList.add(singleHeroNode2);
+        singleLinkedList.add(singleHeroNode3);
+        singleLinkedList.add(singleHeroNode4);
 
         //显示链表
         singleLinkedList.showList();
@@ -31,11 +31,11 @@ public class SingleLinkedListTest {
     //测试有序添加
     @Test
     public void testSingleLinkedListAddByOrder() {
-        singleLinkedList.addByOrder(heroNode1);
-        singleLinkedList.addByOrder(heroNode4);
-        singleLinkedList.addByOrder(heroNode3);
-        singleLinkedList.addByOrder(heroNode2);
-        singleLinkedList.addByOrder(heroNode3);
+        singleLinkedList.addByOrder(singleHeroNode1);
+        singleLinkedList.addByOrder(singleHeroNode4);
+        singleLinkedList.addByOrder(singleHeroNode3);
+        singleLinkedList.addByOrder(singleHeroNode2);
+        singleLinkedList.addByOrder(singleHeroNode3);
 
         //显示链表
         singleLinkedList.showList();
@@ -44,14 +44,14 @@ public class SingleLinkedListTest {
     //测试修改
     @Test
     public void testSingleLinkedListUpdate() {
-        singleLinkedList.addByOrder(heroNode1);
-        singleLinkedList.addByOrder(heroNode4);
-        singleLinkedList.addByOrder(heroNode3);
-        singleLinkedList.addByOrder(heroNode2);
+        singleLinkedList.addByOrder(singleHeroNode1);
+        singleLinkedList.addByOrder(singleHeroNode4);
+        singleLinkedList.addByOrder(singleHeroNode3);
+        singleLinkedList.addByOrder(singleHeroNode2);
 
         singleLinkedList.showList();
-        HeroNode newHeroNode = new HeroNode(2,"小卢", "玉麒麟~~");
-        singleLinkedList.update(newHeroNode);
+        SingleHeroNode newSingleHeroNode = new SingleHeroNode(2,"小卢", "玉麒麟~~");
+        singleLinkedList.update(newSingleHeroNode);
 
         System.out.println("修改后的链表输出：");
 
@@ -59,13 +59,13 @@ public class SingleLinkedListTest {
         singleLinkedList.showList();
     }
 
-    //测试修改
+    //测试删除
     @Test
     public void testSingleLinkedListDelete() {
-        singleLinkedList.addByOrder(heroNode1);
-        singleLinkedList.addByOrder(heroNode4);
-        singleLinkedList.addByOrder(heroNode3);
-        singleLinkedList.addByOrder(heroNode2);
+        singleLinkedList.addByOrder(singleHeroNode1);
+        singleLinkedList.addByOrder(singleHeroNode4);
+        singleLinkedList.addByOrder(singleHeroNode3);
+        singleLinkedList.addByOrder(singleHeroNode2);
 
         singleLinkedList.showList();
 
@@ -85,10 +85,10 @@ public class SingleLinkedListTest {
     //测试返回有效长度
     @Test
     public void testSingleLinkedListGetLength() {
-        singleLinkedList.addByOrder(heroNode1);
-        singleLinkedList.addByOrder(heroNode4);
-        singleLinkedList.addByOrder(heroNode3);
-        singleLinkedList.addByOrder(heroNode2);
+        singleLinkedList.addByOrder(singleHeroNode1);
+        singleLinkedList.addByOrder(singleHeroNode4);
+        singleLinkedList.addByOrder(singleHeroNode3);
+        singleLinkedList.addByOrder(singleHeroNode2);
 
 
         //显示链表
@@ -98,10 +98,10 @@ public class SingleLinkedListTest {
     //测试获取倒数第K个节点
     @Test
     public void testSingleLinkedListGetFindLastIndexNode() {
-        singleLinkedList.addByOrder(heroNode1);
-        singleLinkedList.addByOrder(heroNode4);
-        singleLinkedList.addByOrder(heroNode3);
-        singleLinkedList.addByOrder(heroNode2);
+        singleLinkedList.addByOrder(singleHeroNode1);
+        singleLinkedList.addByOrder(singleHeroNode4);
+        singleLinkedList.addByOrder(singleHeroNode3);
+        singleLinkedList.addByOrder(singleHeroNode2);
 
         singleLinkedList.showList();
 
@@ -115,10 +115,10 @@ public class SingleLinkedListTest {
     //测试反转链表
     @Test
     public void testSingleLinkedListReverseSingleLinkedList() {
-        singleLinkedList.addByOrder(heroNode1);
-        singleLinkedList.addByOrder(heroNode4);
-        singleLinkedList.addByOrder(heroNode3);
-        singleLinkedList.addByOrder(heroNode2);
+        singleLinkedList.addByOrder(singleHeroNode1);
+        singleLinkedList.addByOrder(singleHeroNode4);
+        singleLinkedList.addByOrder(singleHeroNode3);
+        singleLinkedList.addByOrder(singleHeroNode2);
 
         System.out.println("原链表为：");
         singleLinkedList.showList();
@@ -130,10 +130,10 @@ public class SingleLinkedListTest {
     //测试使用栈进行逆序打印
     @Test
     public void testSingleLinkedListReversePrint() {
-        singleLinkedList.addByOrder(heroNode1);
-        singleLinkedList.addByOrder(heroNode4);
-        singleLinkedList.addByOrder(heroNode3);
-        singleLinkedList.addByOrder(heroNode2);
+        singleLinkedList.addByOrder(singleHeroNode1);
+        singleLinkedList.addByOrder(singleHeroNode4);
+        singleLinkedList.addByOrder(singleHeroNode3);
+        singleLinkedList.addByOrder(singleHeroNode2);
 
         System.out.println("原链表为：");
         singleLinkedList.showList();

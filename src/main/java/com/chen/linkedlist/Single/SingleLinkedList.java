@@ -1,18 +1,18 @@
-package com.chen.linkedlist;
+package com.chen.linkedlist.Single;
 
 import java.util.Stack;
 
 // 定义一个SingleLinkedList 管理英雄
 public class SingleLinkedList {
     //初始化一个头节点，不存放任何具体数据
-    private final HeroNode head = new HeroNode(0, "", "");
+    private final SingleHeroNode head = new SingleHeroNode(0, "", "");
 
     //将节点添加刀单线链表中
     //找到当前链表的最后节点
     //将这个节点的next指向新的节点
-    public void add(HeroNode heroNode) {
+    public void add(SingleHeroNode singleHeroNode) {
         //Head节点不动， 因此需要一个辅助节点temp
-        HeroNode temp = head;
+        SingleHeroNode temp = head;
         //遍历链表，找到最后一个节点
         while (true) {
             //找到最后一个节点，退出循环
@@ -23,51 +23,51 @@ public class SingleLinkedList {
             temp = temp.next;
         }
         //当退出while循环后，说明找到了最后一个节点，将该节点的next指向新的节点
-        temp.next = heroNode;
+        temp.next = singleHeroNode;
     }
 
     //在添加英雄时，根据英雄排名将英雄插入刀指定位置
     // 如果该排名有人，则提示添加失败，并给出提示
-    public void addByOrder(HeroNode heroNode) {
-        HeroNode temp = head;
+    public void addByOrder(SingleHeroNode singleHeroNode) {
+        SingleHeroNode temp = head;
         boolean flag = false;
         while (true) {
             if (temp.next == null) {
                 break;
             }
-            if (temp.next.no > heroNode.no) {
+            if (temp.next.no > singleHeroNode.no) {
                 break;
-            } else if (temp.next.no == heroNode.no) {
+            } else if (temp.next.no == singleHeroNode.no) {
                 flag = true;
                 break;
             }
             temp = temp.next;
         }
         if (flag) {
-            System.out.printf("准备插入的英雄编号%d 已经存在了，不能插入\n", heroNode.no);
+            System.out.printf("准备插入的英雄编号%d 已经存在了，不能插入\n", singleHeroNode.no);
         } else {
-            heroNode.next = temp.next;
-            temp.next = heroNode;
+            singleHeroNode.next = temp.next;
+            temp.next = singleHeroNode;
         }
     }
 
     //修改节点的信息，根据no编号来修改，即no编号不能修改
     //说明
     //1. 根据newHeroNode的no来修改即可
-    public void update(HeroNode newHeroNode) {
+    public void update(SingleHeroNode newSingleHeroNode) {
         //判断是否为空
         if (isEmpty()) {
             return;
         }
         //找到需要修改的节点，根据no编号
         //定义一个辅助变量
-        HeroNode temp = head.next;
+        SingleHeroNode temp = head.next;
         boolean flag = false;
         while (true) {
             if (temp == null) {
                 break; //已经完全遍历链表
             }
-            if (temp.no == newHeroNode.no) {
+            if (temp.no == newSingleHeroNode.no) {
                 //找到
                 flag = true;
                 break;
@@ -76,10 +76,10 @@ public class SingleLinkedList {
         }
         //根据flag判断是否找到要修改的节点
         if (flag) {
-            temp.name = newHeroNode.name;
-            temp.nickName = newHeroNode.nickName;
+            temp.name = newSingleHeroNode.name;
+            temp.nickName = newSingleHeroNode.nickName;
         } else {
-            System.out.printf("没有找到编号%d 的节点， 不能修改\n", newHeroNode.no);
+            System.out.printf("没有找到编号%d 的节点， 不能修改\n", newSingleHeroNode.no);
         }
     }
 
@@ -87,7 +87,7 @@ public class SingleLinkedList {
     //思路
     //使用辅助节点找到待删除的节点的前一个节点，即temp.next.no与要删除的节点的no比较
     public void delete(int no) {
-        HeroNode temp = head;
+        SingleHeroNode temp = head;
         boolean flag = false;
         while (true) {
             if (temp.next == null) {
@@ -120,7 +120,7 @@ public class SingleLinkedList {
         if (isEmpty()) {
             return;
         }
-        HeroNode temp = head.next;
+        SingleHeroNode temp = head.next;
         while (true) {
             if (temp == null) {
                 break;
@@ -137,7 +137,7 @@ public class SingleLinkedList {
         }
         int length = 0;
         //没有统计头节点
-        HeroNode current = head.next;
+        SingleHeroNode current = head.next;
         while (current != null) {
             length++;
             current = current.next;
@@ -152,7 +152,7 @@ public class SingleLinkedList {
      *   2 从链表中遍历length-index即可得到该节点
      *   3 找到则返回该节点，否则返回null
      * */
-    public HeroNode findLastIndexNode(int index) {
+    public SingleHeroNode findLastIndexNode(int index) {
         if (isEmpty()) {
             return null;
         }
@@ -160,7 +160,7 @@ public class SingleLinkedList {
         if (index <= 0 || index > size) {
             return null;
         }
-        HeroNode current = head.next;
+        SingleHeroNode current = head.next;
         for (int i = 0; i < size - index; i++) {
             current = current.next;
         }
@@ -174,9 +174,9 @@ public class SingleLinkedList {
         }
 
         //定义一个辅助节点，用来遍历链表
-        HeroNode current = head.next;
-        HeroNode next;
-        HeroNode reverseHead = new HeroNode(0, "", "");
+        SingleHeroNode current = head.next;
+        SingleHeroNode next;
+        SingleHeroNode reverseHead = new SingleHeroNode(0, "", "");
 
         //遍历原来的链表，每遍历一个节点，就将其取出并放到新的链表reverseHead的最前端
         while (current != null) {
@@ -194,8 +194,8 @@ public class SingleLinkedList {
             return;
         }
 
-        Stack<HeroNode> stack = new Stack<>();
-        HeroNode cur = head.next;
+        Stack<SingleHeroNode> stack = new Stack<>();
+        SingleHeroNode cur = head.next;
         while (cur != null) {
             stack.push(cur);
             cur = cur.next;
