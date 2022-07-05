@@ -1,4 +1,4 @@
-package com.chen.linkedList.stack;
+package com.chen.stack;
 
 import com.chen.stack.ArrayStack;
 import com.chen.stack.LinkedListStack;
